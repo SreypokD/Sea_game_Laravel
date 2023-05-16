@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Event_detailController as ControllersEvent_detailController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\StadiumController;
+use App\Http\Controllers\TicketController;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +23,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/allEvent' ,[EventController::class , 'index']);
+Route::resource('events' ,EventController::class);
+
+Route::resource('event_details' , ControllersEvent_detailController::class);
+
+Route::get('/buyticket/{id}' ,[TicketController::class , 'buyTicket']);
+Route::resource('tickets' ,TicketController::class);
+
+Route::resource('stadiums' , StadiumController::class);
+
 

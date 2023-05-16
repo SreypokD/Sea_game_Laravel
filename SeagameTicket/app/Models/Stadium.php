@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Stadium extends Model
 {
@@ -12,5 +13,8 @@ class Stadium extends Model
         'name',
         'zone',
     ];
-
+    public function events(): BelongsToMany{
+        return $this-> belongsToMany(Event::class);
+    }
 }
+

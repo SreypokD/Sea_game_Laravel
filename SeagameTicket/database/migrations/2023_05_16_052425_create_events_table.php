@@ -16,11 +16,12 @@ return new class extends Migration
             $table->string('sportName');
             $table->string('typePlayer');
             $table->date('schedule');
-            $table->unsignedBigInteger('stadiumID');
-            $table->foreign('stadiumID')->references('id')->on('stadiums')->onDelete('cascade');
-            $table->unsignedBigInteger('event_delailID');
-            $table->foreign('event_delailID')->references('id')->on('event_details')->onDelete('cascade');
+            $table->unsignedBigInteger('stadium_id');
+            $table->foreign('stadium_id')->references('id')->on('stadia')->onDelete('cascade');
+            $table->unsignedBigInteger('event_detail_id');
+            $table->foreign('event_detail_id')->references('id')->on('event_details')->onDelete('cascade');
             $table->timestamps();
+        
         });
     }
 
