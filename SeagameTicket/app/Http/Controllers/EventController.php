@@ -27,7 +27,7 @@ class EventController extends Controller
             [
                 'sportName' => 'required|max:30',
                 'typePlayer' => 'required|max:10',
-                'schedule' => 'required|date_format:Y-m-d H:i:s|after_or_equal:today',
+                'schedule' => 'required',
             ]
         );
         if ($validator->fails()) {

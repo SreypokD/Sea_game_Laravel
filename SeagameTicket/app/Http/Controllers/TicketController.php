@@ -70,6 +70,7 @@ class TicketController extends Controller
             [
                 'name' => 'required|max:30',
                 'event_id' => 'required|max:5',
+                'description' => 'required|min:3|max:30',
             ]
         );
         if ($validator->fails()) {
@@ -78,6 +79,7 @@ class TicketController extends Controller
             $tickets = Ticket::where('id' , $id)->update([
                 'name' => $request['name'],
                 'event_id' => $request['event_id'],
+                'description' => $request['description'],
             ]);
             return response()->json(['success' => true, 'data' => $tickets],200);
         }

@@ -22,14 +22,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+// Event api
 Route::resource('events' ,EventController::class);
-
+// Event detail api
 Route::resource('event_details' , ControllersEvent_detailController::class);
-
+// tickets api
 Route::get('/buyticket/{id}' ,[TicketController::class , 'buyTicket']);
 Route::resource('tickets' ,TicketController::class);
-
+// stadium api
 Route::resource('stadiums' , StadiumController::class);
 
 
